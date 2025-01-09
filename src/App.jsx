@@ -1,15 +1,11 @@
 
 import './App.css'
-import Logo from './components/Home/Logo'
-import Body from './components/Home/Body'
-import Footer from './components/Home/Footer'
+import Home from './screens/Home'
 
 function App() {
   return (
     <>
-      <Logo />
-      <Body />
-      <Footer />
+      <Home></Home>
     </>
   )
 }
