@@ -1,13 +1,15 @@
 
 import './App.css'
-import Default from './components/Default'
+import Logo from './components/Home/Logo'
+import Body from './components/Home/Body'
+import Footer from './components/Home/Footer'
 
 function App() {
-  
-
   return (
     <>
-      <Default/>
+      <Logo />
+      <Body />
+      <Footer />
     </>
   )
 }
