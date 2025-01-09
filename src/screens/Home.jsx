@@ -8,15 +8,15 @@ import gitLogo from "../assets/github.svg";
 
 const Home =()=>{
     return(
-        <div>
-          <tr>
-          <td><OpenLink redirectURL="https://vite.dev"  logoImage={viteLogo} /></td>
-          <td><OpenLink redirectURL="https://react.dev"  logoImage={reactLogo} /></td>
-          <td><OpenLink redirectURL="https://github.com/"  logoImage={gitLogo} /></td>
-          </tr>
+        <>
+
+          <OpenLink redirectURL="https://vite.dev"  logoImage={viteLogo} />
+          <OpenLink redirectURL="https://react.dev"  logoImage={reactLogo} />
+          <OpenLink redirectURL="https://github.com/"  logoImage={gitLogo} />
+
           <Body />
           <Footer />
-        </div>
+        </>
     );
 }
 
