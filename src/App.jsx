@@ -1,15 +1,13 @@
 
 import './App.css'
-import Home from './screens/Home'
-import Counter from './components/Counter/Counter.jsx'
-import Product from './screens/Product.jsx'
+import Navigator from './components/Navigation/Navigator'
+import Router  from './components/Navigation/Router'
 
 function App() {
   return (
     <>
-      <Home></Home>
-      <Counter />
-      <Product />
+      <Navigator/>
+      <Router />
     </>
   )
 }
