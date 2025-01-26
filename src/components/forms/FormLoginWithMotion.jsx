@@ -1,19 +1,47 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import useForm from "../Hooks/useForm.js";
 import ModalInfo from "../Modals/ModalInfo.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { setInitialValue } from "../../store/features/forms/formSlice.js";
 
-// eslint-disable-next-line react/prop-types
 const FormWithMotionAndHook = ({ titleForm }) => {
-  const { formData, handleChange } = useForm({
-    username: "",
-    email: "",
-  });
+  const dispatch = useDispatch();
+  const formData = useSelector((state) => state.loginFormData.loginFormData);
+  const [formState, setFormState] = useState(formData);
   const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [showPassword, setShowPAssword] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    /* dispatch(
+      setInitialValue({
+        ...formData,
+        [name]: value,
+      })
+    ); */
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowModal(true)
-    console.log("datos del formulario", formData);
+    const requiredPassword = "mod7USIP-PATRICIA";
+    if (formState.password === requiredPassword) {
+      const soloNombre = requiredPassword.split("-").pop();
+      dispatch(setInitialValue(formState));
+      setModalMessage(`Bienvenido: ${soloNombre}`);
+      console.log("datos del formulario", formData);
+    } else {
+      setModalMessage("Username/Password incorrectos!!");
+    }
+    setShowModal(true);
+  };
+
+  const cambiarVisibilidad = () => {
+    setShowPAssword((prev) => !prev);
   };
 
   const onCloseModalInfo = () => {
@@ -29,11 +57,12 @@ const FormWithMotionAndHook = ({ titleForm }) => {
     >
       <ModalInfo
         visible={showModal}
-        message="Formulario enviado!"
+        /* message="Formulario enviado!" */
+        message={modalMessage}
         onClose={onCloseModalInfo}
       />
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <motion.div
           initial={{ x: -100 }}
           animate={{ x: 0 }}
@@ -46,13 +75,13 @@ const FormWithMotionAndHook = ({ titleForm }) => {
           animate={{ x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div>
+          <div className="form-group">
             <label>
-              Username:
+              Module:
               <input
                 type="text"
-                name="username"
-                value={formData.username}
+                name="module"
+                value={formState.module}
                 onChange={handleChange}
                 required
               />
@@ -64,17 +93,61 @@ const FormWithMotionAndHook = ({ titleForm }) => {
           animate={{ x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div>
+          <div className="form-group">
+            <label>
+              Username:
+              <input
+                type="text"
+                name="username"
+                value={formState.username}
+                onChange={handleChange}
+                required
+              />
+            </label>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="form-group">
             <label>
               Email:
               <input
                 type="email"
                 name="email"
-                value={formData.email}
+                value={formState.email}
                 onChange={handleChange}
                 required
               />
             </label>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="form-group">
+            <label>Password:</label>
+            <div className="password-container">
+              <input
+                type={!showPassword ? "password" : "text"}
+                name="password"
+                value={formState.password}
+                onChange={handleChange}
+                required
+              />
+
+              <button
+                type="button"
+                onClick={cambiarVisibilidad}
+                style={{ marginLeft: "10px" }}
+              >
+                {showPassword ? "Ocultar" : "Mostrar"}
+              </button>
+            </div>
           </div>
         </motion.div>
         <motion.div

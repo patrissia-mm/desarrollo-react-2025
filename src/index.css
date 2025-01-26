@@ -66,3 +66,184 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  color: white;
+  background-color: rgb(94, 185, 80);
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 0;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f4f4f4;
+}
+.section {
+  margin-bottom: 20px; /* Espacio inferior entre secciones */
+}
+
+.section p{
+  font-size: 1rem; /* Tamaño de letra en párrafos*/
+  text-align: left; /* Alineación a la izquierda */
+  margin-bottom: 10px; /* Espacio entre el subtítulo y la línea */
+}
+
+.section h2 {
+  font-size: 1.5rem; /* Tamaño de los subtítulos */
+  font-weight: bold; /* Subtítulos en negrita */
+  text-align: left; /* Alineación a la izquierda */
+  margin-bottom: 10px; /* Espacio entre el subtítulo y la línea */
+}
+
+.section .divider {
+  border-bottom: 2px solid #ccc; /* Línea divisoria */
+  width: 100%; /* Ocupa el 100% del contenedor */
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  padding: 10px 0;
+  background-color: #f1f1f1;
+}
+
+/* Estilo general para el formulario */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los encabezados */
+.form-container h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilo para cada grupo de entrada */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Estilo para el botón de enviar */
+.form-container button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para el botón de mostrar/ocultar contraseña */
+.show-password-btn {
+  margin-top: 5px;
+  background: none;
+  border: none;
+  color: #32d071;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Estilo para la contraseña y el botón */
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  flex: 1;
+}
+
+.show-password-btn {
+  margin-left: 10px;
+  background: none;
+  border: none;
+  color: #007BFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Estilo para el modal */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+}
+
+/* Estilo para el pie de página */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 20px;
+  color: #777;
+}
